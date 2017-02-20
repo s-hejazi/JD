@@ -6,7 +6,7 @@ import metrics.CAMC;
 import metrics.DAM;
 import metrics.DCC;
 import metrics.LCOM;
-
+import metrics.MFA;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IJavaProject;
@@ -115,6 +115,7 @@ public class MetricsAction  implements IObjectActionDelegate {
 						CAMC camc = new CAMC (system);
 						DAM dam = new DAM (system);
 						DCC dcc = new DCC (system);
+						MFA mfa = new MFA (system);
 						if(selectedPackageFragmentRoot != null) {
 							// package fragment root selected
 						}
