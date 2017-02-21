@@ -1,6 +1,7 @@
 package metrics;
 
 import ast.ClassObject;
+import ast.MethodObject;
 import ast.SystemObject;
 
 /**
@@ -18,7 +19,16 @@ public class MFA
 	public MFA(SystemObject system){
 		for(ClassObject classobject :system.getClassObjects())
 		{
-		ratioperclass=parentmethods(classobject.getName(), system)/classobject.getMethodList().size();
+		int overridecount=0;
+		//removing the method overrides
+		for(MethodObject methodobject:classobject.getMethodList())
+		{
+			if(methodobject.overridesMethod())
+			{
+			overridecount++;	
+			}
+		}
+		ratioperclass=(parentmethods(classobject.getName(), system)-overridecount)/classobject.getMethodList().size();
 		numberofclasses++;
 		}
 		System.out.println("MFA = "+ratioperclass/numberofclasses);
