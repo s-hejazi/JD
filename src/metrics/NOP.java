@@ -17,7 +17,7 @@ public class NOP {
 		int polyCount = 0;
 		boolean returnVal = false;
 		for (ClassObject co : classObjects) {
-			System.out.println(co.getName());
+			//System.out.println(co.getName());
 
 			List<MethodObject> methodList = co.getMethodList();
 
@@ -29,11 +29,9 @@ public class NOP {
 						polyCount++;
 					}
 				}
-			}
-
-			System.out.println(" No of Polymorphic methods in   " + co.getName() + " = "+polyCount);
-			polyCount = 0;
+			}	
 		}
+		System.out.println(" No of Polymorphic methods in system = "+polyCount);
 	}
 	
 	//  to verify whether method  is abstract or not
