@@ -116,6 +116,7 @@ public class MetricsAction  implements IObjectActionDelegate {
 						DAM dam = new DAM (system);
 						DCC dcc = new DCC (system);
 						MFA mfa = new MFA (system);
+						NOP nop = new NOP (system);
 						if(selectedPackageFragmentRoot != null) {
 							// package fragment root selected
 						}
