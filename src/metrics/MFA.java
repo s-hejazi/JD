@@ -39,7 +39,17 @@ public class MFA
 		int methodcount=0;
 		try
 		{
-		methodcount+=system.getClassObject(system.getClassObject(classname).getSuperclass().toString()).getNumberOfMethods();
+			
+		ClassObject clo=system.getClassObject(system.getClassObject(classname).getSuperclass().toString());	
+		for(MethodObject methodobject:clo.getMethodList())
+		{
+				if(!methodobject.getAccess().equals("private"))
+				{
+					methodcount++;
+				}
+		}	
+			
+		//methodcount+=system.getClassObject(system.getClassObject(classname).getSuperclass().toString()).getNumberOfMethods();
 		String temp1 = system.getClassObject(classname).getSuperclass().toString();
 		return methodcount+parentmethods(temp1,system);
 		}
