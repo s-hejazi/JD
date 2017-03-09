@@ -28,7 +28,7 @@ public class MFA
 			overridecount++;	
 			}
 		}
-		ratioperclass=(parentmethods(classobject.getName(), system)-overridecount)/classobject.getMethodList().size();
+		ratioperclass=(parentmethods(classobject.getName(), system)-overridecount)/(classobject.getMethodList().size()+(parentmethods(classobject.getName(), system)-overridecount));
 		numberofclasses++;
 		}
 		System.out.println("MFA = "+ratioperclass/numberofclasses);
