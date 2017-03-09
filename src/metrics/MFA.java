@@ -43,7 +43,7 @@ public class MFA
 		ClassObject clo=system.getClassObject(system.getClassObject(classname).getSuperclass().toString());	
 		for(MethodObject methodobject:clo.getMethodList())
 		{
-				if(!methodobject.getAccess().equals("private"))
+				if(methodobject.getAccess().equals("protected") || methodobject.getAccess().equals("public"))
 				{
 					methodcount++;
 				}

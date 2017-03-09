@@ -3,10 +3,13 @@ package view;
 import java.lang.reflect.InvocationTargetException;
 
 import metrics.CAMC;
+import metrics.CF;
 import metrics.DAM;
 import metrics.DCC;
 import metrics.LCOM;
 import metrics.MFA;
+import metrics.NOP;
+
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jdt.core.ICompilationUnit;
 import org.eclipse.jdt.core.IJavaProject;
@@ -110,13 +113,15 @@ public class MetricsAction  implements IObjectActionDelegate {
 							new ASTReader(selectedProject, monitor);
 						}
 						SystemObject system = ASTReader.getSystemObject();
-						//LCOM lcom = new LCOM(system);
-						//System.out.print(lcom.toString());
+						LCOM lcom = new LCOM(system);
+						System.out.print(lcom.toString());
 						CAMC camc = new CAMC (system);
 						DAM dam = new DAM (system);
 						DCC dcc = new DCC (system);
-						MFA mfa = new MFA (system);
+						//MFA mfa = new MFA (system);
 						NOP nop = new NOP (system);
+						CF cf = new CF(system);
+
 						if(selectedPackageFragmentRoot != null) {
 							// package fragment root selected
 						}

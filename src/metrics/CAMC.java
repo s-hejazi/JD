@@ -18,8 +18,7 @@ public class CAMC {
 		Set<ClassObject> classList;
 		classList = system.getClassObjects();
 		float camc = 0;
-		
-		//static?
+
 		for (ClassObject co: classList)
 		{
 			if(co.getMethodList()!= null && co.getMethodList().size() != 0)
