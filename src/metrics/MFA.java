@@ -30,12 +30,16 @@ public class MFA
 		}
 		int nume = (parentmethods(classobject.getName(), system)-overridecount);
 		int deno = ((parentmethods(classobject.getName(), system)-overridecount)+classobject.getMethodList().size());
+		
+		if(Float.valueOf((nume))/Float.valueOf(deno)>0 && (Float.valueOf((nume))/Float.valueOf(deno))<5)
+		{
 		ratioperclass+=Float.valueOf((nume))/Float.valueOf(deno);
-		//System.out.println("Nume "+nume+ " Deno " +deno +" Ratio Per Class " + Float.valueOf((nume))/Float.valueOf(deno));
+		System.out.println("Nume "+nume+ " Deno " +deno +" Ratio Per Class " + Float.valueOf((nume))/Float.valueOf(deno));
 		numberofclasses++;
 		}
+		}
 		
-		//System.out.print("Ratio Per class " + ratioperclass + "number of classes  " + numberofclasses);
+		System.out.print("Ratio Per class " + ratioperclass + "number of classes  " + numberofclasses);
 		System.out.println("MFA = "+Float.valueOf(ratioperclass)/Float.valueOf(numberofclasses));
 	}
 	//calculating the inherited methods
