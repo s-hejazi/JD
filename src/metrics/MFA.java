@@ -28,10 +28,15 @@ public class MFA
 			overridecount++;	
 			}
 		}
-		ratioperclass=(parentmethods(classobject.getName(), system)-overridecount)/(classobject.getMethodList().size()+(parentmethods(classobject.getName(), system)-overridecount));
+		int nume = (parentmethods(classobject.getName(), system)-overridecount);
+		int deno = ((parentmethods(classobject.getName(), system)-overridecount)+classobject.getMethodList().size());
+		ratioperclass+=Float.valueOf((nume))/Float.valueOf(deno);
+		//System.out.println("Nume "+nume+ " Deno " +deno +" Ratio Per Class " + Float.valueOf((nume))/Float.valueOf(deno));
 		numberofclasses++;
 		}
-		System.out.println("MFA = "+ratioperclass/numberofclasses);
+		
+		//System.out.print("Ratio Per class " + ratioperclass + "number of classes  " + numberofclasses);
+		System.out.println("MFA = "+Float.valueOf(ratioperclass)/Float.valueOf(numberofclasses));
 	}
 	//calculating the inherited methods
 	int parentmethods(String classname,SystemObject system)
@@ -43,7 +48,7 @@ public class MFA
 		ClassObject clo=system.getClassObject(system.getClassObject(classname).getSuperclass().toString());	
 		for(MethodObject methodobject:clo.getMethodList())
 		{
-				if(methodobject.getAccess().equals("protected") || methodobject.getAccess().equals("public"))
+				if(!methodobject.getAccess().equals("private"))
 				{
 					methodcount++;
 				}

@@ -118,7 +118,7 @@ public class MetricsAction  implements IObjectActionDelegate {
 						CAMC camc = new CAMC (system);
 						DAM dam = new DAM (system);
 						DCC dcc = new DCC (system);
-						//MFA mfa = new MFA (system);
+						MFA mfa = new MFA (system);
 						NOP nop = new NOP (system);
 						CF cf = new CF(system);
 
