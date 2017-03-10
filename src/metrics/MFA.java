@@ -13,7 +13,6 @@ to that class, i.e. inherited and defined methods.
 
 public class MFA 
 {
-	int numberofclasses=0;
 	float ratioperclass;
 	//calculating MFA
 	public MFA(SystemObject system){
@@ -28,19 +27,18 @@ public class MFA
 			overridecount++;	
 			}
 		}
+		
 		int nume = (parentmethods(classobject.getName(), system)-overridecount);
-		int deno = ((parentmethods(classobject.getName(), system)-overridecount)+classobject.getMethodList().size());
+		int deno = ((parentmethods(classobject.getName(), system)-overridecount) + classobject.getNumberOfMethods()) + classobject.getConstructorList().size();
 		
 		if(Float.valueOf((nume))/Float.valueOf(deno)>0 && (Float.valueOf((nume))/Float.valueOf(deno))<5)
 		{
 		ratioperclass+=Float.valueOf((nume))/Float.valueOf(deno);
-		//System.out.println("Nume "+nume+ " Deno " +deno +" Ratio Per Class " + Float.valueOf((nume))/Float.valueOf(deno));
-		numberofclasses++;
-		}
-		}
 		
-		//System.out.print("Ratio Per class " + ratioperclass + "number of classes  " + numberofclasses);
-		System.out.println("MFA = "+Float.valueOf(ratioperclass)/Float.valueOf(numberofclasses));
+		}
+		}
+
+		System.out.println("MFA = "+Float.valueOf(ratioperclass)/Float.valueOf(system.getClassNumber()));
 	}
 	//calculating the inherited methods
 	int parentmethods(String classname,SystemObject system)
@@ -57,8 +55,7 @@ public class MFA
 					methodcount++;
 				}
 		}	
-			
-		//methodcount+=system.getClassObject(system.getClassObject(classname).getSuperclass().toString()).getNumberOfMethods();
+
 		String temp1 = system.getClassObject(classname).getSuperclass().toString();
 		return methodcount+parentmethods(temp1,system);
 		}

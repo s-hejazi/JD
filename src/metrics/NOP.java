@@ -31,7 +31,7 @@ public class NOP {
 				}
 			}	
 		}
-		System.out.println(" NOP = "+polyCount);
+		System.out.println("NOP = "+polyCount);
 	}
 	
 	//  to verify whether method  is abstract or not

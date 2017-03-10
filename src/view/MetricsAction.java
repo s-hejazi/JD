@@ -114,7 +114,6 @@ public class MetricsAction  implements IObjectActionDelegate {
 						}
 						SystemObject system = ASTReader.getSystemObject();
 						LCOM lcom = new LCOM(system);
-						System.out.print(lcom.toString());
 						CAMC camc = new CAMC (system);
 						DAM dam = new DAM (system);
 						DCC dcc = new DCC (system);

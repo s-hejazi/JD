@@ -26,6 +26,14 @@ public class LCOM {
 				cohesionMap.put(classObject.getName(), cohesion);
 			}
 		}
+
+		int sum=0;
+		for(String key : cohesionMap.keySet()) {
+			sum += cohesionMap.get(key);		
+		}
+		float LCOM = (float) sum / system.getClassNumber();
+		System.out.println("LCOM = " +LCOM);
+
 		
 	}
 	
@@ -76,12 +84,5 @@ public class LCOM {
 		
 	}
 
-	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		for(String key : cohesionMap.keySet()) {
-			sb.append(key).append("\t").append(cohesionMap.get(key)).append("\n");
-		}
-		return sb.toString();
-	}
+
 }
